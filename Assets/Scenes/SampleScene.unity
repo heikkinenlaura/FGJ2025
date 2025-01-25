@@ -927,6 +927,8 @@ MonoBehaviour:
   checkingOrderScript: {fileID: 1127936596}
   currentCustomer: {fileID: 4767469617499471950, guid: c006e84eb9cb02947a24445d7df8cc37, type: 3}
   customerArriving: {fileID: 1127936592}
+  customersParent: {fileID: 1723831274}
+  startingPoint: {fileID: 1304713789}
 --- !u!114 &1127936596
 MonoBehaviour:
   m_ObjectHideFlags: 0
