@@ -17,7 +17,7 @@ public class CustomerArriving : MonoBehaviour
         StartCoroutine(SpawnAndMoveCustomer());
     }
 
-    IEnumerator SpawnAndMoveCustomer()
+    public IEnumerator SpawnAndMoveCustomer()
     {
         // Spawn the customer at the starting point
         GameObject newCustomer = Instantiate(customerPrefab, startingPoint.position, Quaternion.Euler(0, -180, 0));

@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class CheckingOrder : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class CheckingOrder : MonoBehaviour
     private bool isOrderMade = false; // Track if an order is made
     private GameObject lastInstantiatedItem; // Track the last instantiated item
     public CustomerSatisfaction customerSatisfactionScript; // Reference to CustomerSatisfaction script
+
+    public TextMeshProUGUI scoreText;
 
     // Method to check if the order matches
     public void CheckOrder(GameObject instantiatedItem)
@@ -25,21 +28,21 @@ public class CheckingOrder : MonoBehaviour
         {
             return;
         }
+        
 
         // Normalize names (remove "(Clone)", trim whitespace, and convert to lowercase for consistent comparison)
         string selectedIconName = CleanName(selectedIcon.name);
         string instantiatedItemName = CleanName(instantiatedItem.name);
 
-        // Compare names for a match
         if (selectedIconName == instantiatedItemName)
         {
             score += 1; // Add 1 point for a correct match
-            Debug.Log($"Match! Score: {score}");
+            scoreText.text = $"$: {score}"; // Update the UI text
         }
         else
         {
             score -= 1; // Subtract 1 point for an incorrect match
-            Debug.Log($"No match. Score: {score}");
+            scoreText.text = $"$: {score}"; // Update the UI text
         }
 
         // After checking the order, call the customer satisfaction script

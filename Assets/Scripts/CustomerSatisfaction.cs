@@ -57,7 +57,7 @@ public class CustomerSatisfaction : MonoBehaviour
     {
         if (customerAnimator != null)
         {
-            customerAnimator.SetTrigger("Sad");
+            customerAnimator.SetTrigger("Angry");
         }
         else
         {

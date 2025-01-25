@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 public class MakeOrder : MonoBehaviour
 {
@@ -22,9 +23,12 @@ public class MakeOrder : MonoBehaviour
     public GameObject customersParent;
     public Transform startingPoint;
 
+    public GameObject serveButton;
+
     public void CoffeeMachine()
     {
         StartCoroutine(SpawnItemAfterAnimation(coffeePrefab));
+        
     }
 
     public void WaffleMachine()
@@ -84,16 +88,19 @@ public class MakeOrder : MonoBehaviour
             customer.transform.rotation = Quaternion.Euler(0, 0, 0);
             yield return null; // Wait for the next frame
         }
-
+        serveButton.SetActive(false);
         // Once the customer reaches the starting point, destroy the customer object
         Destroy(currentCustomer);
         Debug.Log("Customer has left and was destroyed.");
+
+        StartCoroutine(customerArriving.SpawnAndMoveCustomer());
     }
     private IEnumerator SpawnItemAfterAnimation(GameObject itemPrefab)
     {
         // Wait for the animation to finish (you can use a fixed time or animation length)
         yield return new WaitForSeconds(3f);
 
+        serveButton.SetActive(true);
         // Instantiate the item at the order placement point
         if (itemPrefab != null && orderPlacementPoint != null)
         {

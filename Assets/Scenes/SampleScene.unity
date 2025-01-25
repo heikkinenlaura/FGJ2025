@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: $100
+  m_text: $0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: edf41478d6f5f884e87812098d000532, type: 2}
   m_sharedMaterial: {fileID: -539960793793654869, guid: edf41478d6f5f884e87812098d000532, type: 2}
@@ -1297,6 +1297,7 @@ MonoBehaviour:
   customerArriving: {fileID: 1127936592}
   customersParent: {fileID: 1723831274}
   startingPoint: {fileID: 1304713789}
+  serveButton: {fileID: 1854797129}
 --- !u!114 &1127936596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1311,6 +1312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orderingScript: {fileID: 1127936594}
   customerSatisfactionScript: {fileID: 3003978554111148606, guid: c006e84eb9cb02947a24445d7df8cc37, type: 3}
+  scoreText: {fileID: 57572224}
 --- !u!1 &1283099658
 GameObject:
   m_ObjectHideFlags: 0
@@ -2343,7 +2345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1854797130
 RectTransform:
   m_ObjectHideFlags: 0
