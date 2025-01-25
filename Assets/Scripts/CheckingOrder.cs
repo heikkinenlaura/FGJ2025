@@ -4,7 +4,7 @@ using TMPro;
 public class CheckingOrder : MonoBehaviour
 {
     public Ordering orderingScript;  // Reference to the Ordering script
-    private int score = 0;           // Track the score
+    public int score = 0;           // Track the score
     private bool isOrderMade = false; // Track if an order is made
     private GameObject lastInstantiatedItem; // Track the last instantiated item
     public CustomerSatisfaction customerSatisfactionScript; // Reference to CustomerSatisfaction script

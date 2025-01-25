@@ -7,6 +7,18 @@ public class CustomerSatisfaction : MonoBehaviour
 
     private GameObject currentCustomer; // Current instantiated customer object
 
+    private CheckingOrder scoreCounterScript;
+
+    void Start()
+    {
+        GameObject gameManager = GameObject.Find("GameManager");
+
+        if (gameManager != null)
+        {
+            scoreCounterScript = gameManager.GetComponent<CheckingOrder>();
+        }
+    }
+
     // Function to be called when a score change happens
     public void HandleCustomerSatisfaction(int scoreChange)
     {
@@ -29,11 +41,11 @@ public class CustomerSatisfaction : MonoBehaviour
         customerAnimator = currentCustomer.GetComponent<Animator>();
 
         // Trigger animations based on score change
-        if (scoreChange > 0)
+        if (scoreCounterScript.score >= 1)
         {
             PlayHappyAnimation();
         }
-        else if (scoreChange < 0)
+        else if (scoreCounterScript.score <= 0)
         {
             PlaySadAnimation();
         }
