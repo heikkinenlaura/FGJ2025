@@ -9,7 +9,7 @@ public class CustomerArriving : MonoBehaviour
     public float customerSpeed = 2f;   // Speed at which the customer moves toward the ordering point
     public float waitBehindDistance = 2f;  // Distance behind the ordering point to wait if occupied
 
-    private bool isCustomerAtOrderingPoint = false; // To check if the ordering point is currently occupied
+    public bool isCustomerAtOrderingPoint = false; // To check if the ordering point is currently occupied
 
     void Start()
     {
@@ -62,11 +62,6 @@ public class CustomerArriving : MonoBehaviour
 
             // Simulate the time for ordering (adjust this as needed)
             yield return new WaitForSeconds(3f); // Time customer spends ordering
-
-            // After "ordering", let the customer stay at the ordering point or do something else
-            // For now, we just leave the customer at the ordering point
-            // (If you want them to move away after ordering, you can use something like the following)
-            // customer.transform.position = someOtherPosition;
 
             // The ordering point is now free
             isCustomerAtOrderingPoint = false;
