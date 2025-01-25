@@ -14,9 +14,11 @@ public class MakeOrder : MonoBehaviour
 
     // Add a reference to store the instantiated item
     private GameObject currentInstantiatedItem;
+
     public GameObject currentCustomer;
     public CustomerArriving customerArriving;
 
+    private GameObject orderIcon;
     public GameObject customersParent;
     public Transform startingPoint;
 
@@ -44,8 +46,10 @@ public class MakeOrder : MonoBehaviour
             checkingOrderScript.PlaceOrder(currentInstantiatedItem);
 
             // Destroy the item after placing it in the order
+            orderIcon = orderingScript.orderParent.transform.GetChild(0).gameObject;
             Destroy(currentInstantiatedItem);
-
+            Destroy(orderIcon);
+            Destroy(orderingScript.selectedIcon);
 
             StartLeavingCustomer(currentCustomer);
 
@@ -63,6 +67,7 @@ public class MakeOrder : MonoBehaviour
 
         if (currentCustomer != null)
         {
+
             // Start the customer's movement back to the starting point
             StartCoroutine(MoveCustomerBackToStartingPoint(currentCustomer));
         }

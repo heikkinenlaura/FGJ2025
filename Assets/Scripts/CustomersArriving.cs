@@ -21,7 +21,7 @@ public class CustomerArriving : MonoBehaviour
     {
         // Spawn the customer at the starting point
         GameObject newCustomer = Instantiate(customerPrefab, startingPoint.position, Quaternion.Euler(0, -180, 0));
-        newCustomer.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        newCustomer.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
         newCustomer.transform.SetParent(customersParent);
         newCustomer.tag = "Customer"; // Ensure the customer has the "Customer" tag for any future use
         

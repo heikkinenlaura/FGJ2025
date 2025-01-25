@@ -6,8 +6,10 @@ public class Ordering : MonoBehaviour
     public List<GameObject> orderIcons; // List of order icon prefabs
     public GameObject placementForOrderIcon; // Where the order icon should be placed
     private GameObject lastInstantiatedOrderIcon; // To track the last instantiated order icon
-    private GameObject selectedIcon; // Track the selected order icon
+    [HideInInspector]
+    public GameObject selectedIcon; // Track the selected order icon
 
+    public Transform orderParent;
     private CustomerArriving customerArrivingScript; // Reference to the CustomerArriving script
     public CheckingOrder checkingOrderScript; // Reference to the CheckingOrder script
 
@@ -33,6 +35,7 @@ public class Ordering : MonoBehaviour
                 if (selectedIcon != null && placementForOrderIcon != null)
                 {
                     lastInstantiatedOrderIcon = Instantiate(selectedIcon, placementForOrderIcon.transform.position, Quaternion.identity);
+                    lastInstantiatedOrderIcon.transform.SetParent(orderParent);
                 }
 
                 // After placing the icon, mark that the customer has ordered
