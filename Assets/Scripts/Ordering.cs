@@ -11,6 +11,7 @@ public class Ordering : MonoBehaviour
     private CustomerArriving customerArrivingScript; // Reference to the CustomerArriving script
     public CheckingOrder checkingOrderScript; // Reference to the CheckingOrder script
 
+    [System.Obsolete]
     void Start()
     {
         // Find the CustomerArriving script

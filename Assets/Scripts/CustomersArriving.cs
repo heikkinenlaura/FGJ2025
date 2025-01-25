@@ -63,11 +63,6 @@ public class CustomerArriving : MonoBehaviour
             // Simulate the time for ordering (adjust this as needed)
             yield return new WaitForSeconds(3f); // Time customer spends ordering
 
-            // After "ordering", let the customer stay at the ordering point or do something else
-            // For now, we just leave the customer at the ordering point
-            // (If you want them to move away after ordering, you can use something like the following)
-            // customer.transform.position = someOtherPosition;
-
             // The ordering point is now free
             isCustomerAtOrderingPoint = false;
         }

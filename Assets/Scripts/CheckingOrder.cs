@@ -13,7 +13,6 @@ public class CheckingOrder : MonoBehaviour
         // Ensure an order is made and the instantiated item is valid
         if (!isOrderMade || instantiatedItem == null)
         {
-            Debug.LogWarning("Order not ready to be checked or item is null.");
             return;
         }
 
@@ -23,15 +22,12 @@ public class CheckingOrder : MonoBehaviour
         // Check if the selected icon exists
         if (selectedIcon == null)
         {
-            Debug.LogWarning("No selected order icon found to match against.");
             return;
         }
 
         // Normalize names (remove "(Clone)", trim whitespace, and convert to lowercase for consistent comparison)
         string selectedIconName = CleanName(selectedIcon.name);
         string instantiatedItemName = CleanName(instantiatedItem.name);
-
-        Debug.Log($"Checking order: SelectedIcon = {selectedIconName}, InstantiatedItem = {instantiatedItemName}");
 
         // Compare names for a match
         if (selectedIconName == instantiatedItemName)
