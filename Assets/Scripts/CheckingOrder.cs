@@ -6,8 +6,7 @@ public class CheckingOrder : MonoBehaviour
     private int score = 0;           // Track the score
     private bool isOrderMade = false; // Track if an order is made
     private GameObject lastInstantiatedItem; // Track the last instantiated item
-
-    public CustomerSatisfaction customerSatisfactionScript; // Reference to the CustomerSatisfaction script
+    public CustomerSatisfaction customerSatisfactionScript; // Reference to CustomerSatisfaction script
 
     // Method to check if the order matches
     public void CheckOrder(GameObject instantiatedItem)

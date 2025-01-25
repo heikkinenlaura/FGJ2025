@@ -17,8 +17,7 @@ public class CustomerSatisfaction : MonoBehaviour
             return;
         }
 
-        // Instantiate a new customer
-        currentCustomer = Instantiate(customerPrefab, transform.position, Quaternion.identity);
+        currentCustomer = customerPrefab;
 
         // Make sure it's active
         if (!currentCustomer.activeSelf)

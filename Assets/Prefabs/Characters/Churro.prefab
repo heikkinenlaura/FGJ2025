@@ -9,16 +9,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8b106ac37fb309443b80be7ee286296b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b106ac37fb309443b80be7ee286296b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b106ac37fb309443b80be7ee286296b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b106ac37fb309443b80be7ee286296b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 6.0776424
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8b106ac37fb309443b80be7ee286296b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.7197011
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8b106ac37fb309443b80be7ee286296b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 12.2193575
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8b106ac37fb309443b80be7ee286296b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -52,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Churro
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8b106ac37fb309443b80be7ee286296b, type: 3}
+      propertyPath: m_TagString
+      value: Customer
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -59,6 +75,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8b106ac37fb309443b80be7ee286296b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 477049640925648973}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8b106ac37fb309443b80be7ee286296b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3003978554111148606}
   m_SourcePrefab: {fileID: 100100000, guid: 8b106ac37fb309443b80be7ee286296b, type: 3}
 --- !u!1 &4767469617499471950 stripped
 GameObject:
@@ -87,3 +106,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3003978554111148606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4767469617499471950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57381db138bb7a94284128946a1fc564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customerPrefab: {fileID: 4767469617499471950}
+  customerAnimator: {fileID: 477049640925648973}

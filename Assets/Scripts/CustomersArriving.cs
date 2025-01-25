@@ -8,7 +8,7 @@ public class CustomerArriving : MonoBehaviour
     public Transform orderingPoint;    // The ordering point where the customer goes
     public float customerSpeed = 2f;   // Speed at which the customer moves toward the ordering point
     public float waitBehindDistance = 2f;  // Distance behind the ordering point to wait if occupied
-
+    public Transform customersParent;
     public bool isCustomerAtOrderingPoint = false; // To check if the ordering point is currently occupied
 
     void Start()
@@ -21,6 +21,7 @@ public class CustomerArriving : MonoBehaviour
     {
         // Spawn the customer at the starting point
         GameObject newCustomer = Instantiate(customerPrefab, startingPoint.position, Quaternion.identity);
+        newCustomer.transform.SetParent(customersParent);
         newCustomer.tag = "Customer"; // Ensure the customer has the "Customer" tag for any future use
 
         // Start the customer's movement towards the ordering point
