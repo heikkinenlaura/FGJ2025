@@ -122,9 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57381db138bb7a94284128946a1fc564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customerPrefab: {fileID: 8198644620564506720}
   customerAnimator: {fileID: 8338734737360382074}
-  door: {fileID: 9077803038630655889, guid: e09418231c8c384478b61e181988e844, type: 3}
-  moveSpeed: 2
 --- !u!95 &8338734737360382074
 Animator:
   serializedVersion: 7

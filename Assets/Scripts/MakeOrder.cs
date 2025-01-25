@@ -12,6 +12,9 @@ public class MakeOrder : MonoBehaviour
     public Ordering orderingScript;  // Reference to Ordering script
     public CheckingOrder checkingOrderScript; // Reference to CheckingOrder script
 
+    // Add a reference to store the instantiated item
+    private GameObject currentInstantiatedItem;
+
     public void CoffeeMachine()
     {
         StartCoroutine(SpawnItemAfterAnimation(coffeePrefab));
@@ -27,6 +30,29 @@ public class MakeOrder : MonoBehaviour
         StartCoroutine(SpawnItemAfterAnimation(teaPrefab));
     }
 
+    public void Serve()
+    {
+        // Check if an item has been instantiated
+        if (currentInstantiatedItem != null)
+        {
+            // Notify CheckingOrder that the item is being placed in the order
+            checkingOrderScript.PlaceOrder(currentInstantiatedItem);
+
+            // Optional: Add any logic for completing the order (e.g., visual effects)
+            Debug.Log("Item placed in the order.");
+
+            // Destroy the item after placing it in the order
+            Destroy(currentInstantiatedItem);
+
+            // Clear the reference to the instantiated item
+            currentInstantiatedItem = null;
+        }
+        else
+        {
+            Debug.LogWarning("No item to serve.");
+        }
+    }
+
     private IEnumerator SpawnItemAfterAnimation(GameObject itemPrefab)
     {
         // Wait for the animation to finish (you can use a fixed time or animation length)
@@ -35,13 +61,10 @@ public class MakeOrder : MonoBehaviour
         // Instantiate the item at the order placement point
         if (itemPrefab != null && orderPlacementPoint != null)
         {
-            GameObject instantiatedItem = Instantiate(itemPrefab, orderPlacementPoint.position, Quaternion.identity);
+            currentInstantiatedItem = Instantiate(itemPrefab, orderPlacementPoint.position, Quaternion.identity);
 
-            // Notify CheckingOrder that an order has been placed
-            if (checkingOrderScript != null)
-            {
-                checkingOrderScript.PlaceOrder(instantiatedItem);  // Pass the instantiated item
-            }
+            // Optionally, you can add any logic you want here, like notifying the UI or doing something visual.
+            Debug.Log("Item instantiated but not yet placed in order.");
         }
     }
 }

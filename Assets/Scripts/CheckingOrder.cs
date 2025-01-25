@@ -7,6 +7,8 @@ public class CheckingOrder : MonoBehaviour
     private bool isOrderMade = false; // Track if an order is made
     private GameObject lastInstantiatedItem; // Track the last instantiated item
 
+    public CustomerSatisfaction customerSatisfactionScript; // Reference to the CustomerSatisfaction script
+
     // Method to check if the order matches
     public void CheckOrder(GameObject instantiatedItem)
     {
@@ -41,6 +43,12 @@ public class CheckingOrder : MonoBehaviour
             Debug.Log($"No match. Score: {score}");
         }
 
+        // After checking the order, call the customer satisfaction script
+        if (customerSatisfactionScript != null)
+        {
+            customerSatisfactionScript.HandleCustomerSatisfaction(score); // Pass the score to handle customer satisfaction
+        }
+
         // Reset the flag after checking the order
         isOrderMade = false;
     }
@@ -56,9 +64,36 @@ public class CheckingOrder : MonoBehaviour
         CheckOrder(lastInstantiatedItem);
     }
 
+    // New ServeOrder method to handle the process when an item is served
+    public void ServeOrder(GameObject item)
+    {
+        // Check if item is valid
+        if (item != null)
+        {
+            // Destroy the item after it's served
+            Destroy(item);
+
+            // Optionally, call customer satisfaction or any other logic you'd like after serving the item
+            if (customerSatisfactionScript != null)
+            {
+                customerSatisfactionScript.HandleCustomerSatisfaction(score); // Update customer satisfaction
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Item is invalid and cannot be served.");
+        }
+    }
+
     // Utility method to clean names (removes "(Clone)", trims, and converts to lowercase)
     private string CleanName(string name)
     {
         return name.Replace("(Clone)", "").Trim().ToLower();
+    }
+
+    // Method to get the current order item (needed for Serve method)
+    public GameObject GetCurrentOrderItem()
+    {
+        return lastInstantiatedItem;  // Return the most recent placed item
     }
 }
