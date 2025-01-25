@@ -846,6 +846,7 @@ GameObject:
   - component: {fileID: 1127936592}
   - component: {fileID: 1127936594}
   - component: {fileID: 1127936595}
+  - component: {fileID: 1127936596}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -903,6 +904,7 @@ MonoBehaviour:
   - {fileID: 919132149155446097, guid: a47e45276269ee34e8e6da6ee27ab586, type: 3}
   - {fileID: 919132149155446097, guid: 65ed73e2ee3e89d46b188219bd028e82, type: 3}
   placementForOrderIcon: {fileID: 1033041783029063535, guid: b6cafaaf424b52242a37ea59f511669c, type: 3}
+  checkingOrderScript: {fileID: 1127936596}
 --- !u!114 &1127936595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -919,6 +921,21 @@ MonoBehaviour:
   teaPrefab: {fileID: 4051528363967122557, guid: 88c0764577c6ad54f889abddfd360808, type: 3}
   wafflePrefab: {fileID: 5953223578077502580, guid: 7d2183aec9c63584180068b2cdf133c2, type: 3}
   orderPlacementPoint: {fileID: 974954518}
+  orderingScript: {fileID: 1127936594}
+  checkingOrderScript: {fileID: 1127936596}
+--- !u!114 &1127936596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127936591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b8f6a497de582499571b9aa0cc51c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderingScript: {fileID: 1127936594}
 --- !u!1001 &1295543330
 PrefabInstance:
   m_ObjectHideFlags: 0
