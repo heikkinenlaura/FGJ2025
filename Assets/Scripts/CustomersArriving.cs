@@ -9,7 +9,7 @@ public class CustomerArriving : MonoBehaviour
     public float customerSpeed = 2f;   // Speed at which the customer moves toward the ordering point
     public float waitBehindDistance = 2f;  // Distance behind the ordering point to wait if occupied
 
-    private bool isCustomerAtOrderingPoint = false; // To check if the ordering point is currently occupied
+    public bool isCustomerAtOrderingPoint = false; // To check if the ordering point is currently occupied
 
     void Start()
     {
