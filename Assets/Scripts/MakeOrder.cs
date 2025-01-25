@@ -76,6 +76,7 @@ public class MakeOrder : MonoBehaviour
         while (Vector3.Distance(customer.transform.position, startingPosition) > 0.1f)
         {
             customer.transform.position = Vector3.MoveTowards(customer.transform.position, startingPosition, customerArriving.customerSpeed * Time.deltaTime);
+            customer.transform.rotation = Quaternion.Euler(0, 0, 0);
             yield return null; // Wait for the next frame
         }
 
