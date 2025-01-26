@@ -9,6 +9,7 @@ public class Audio : MonoBehaviour
     public AudioClip teaAudio;
     public AudioClip happyAudio;
     public AudioClip angryAudio;
+    public AudioClip walkAudio;
 
     private AudioSource audioSource;
 
@@ -42,4 +43,6 @@ public class Audio : MonoBehaviour
     public void PlayHappySound() => PlaySound(happyAudio);
     public void PlayAngrySound() => PlaySound(angryAudio);
     public void PlayTeaSound() => PlaySound(teaAudio);
+    public void PlayWalkSound() => PlaySound(walkAudio);
+
 }
