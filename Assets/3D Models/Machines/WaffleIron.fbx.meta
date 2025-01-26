@@ -3,7 +3,22 @@ guid: 65ed73e2ee3e89d46b188219bd028e82
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Iron
+    second: {fileID: 2100000, guid: f88719fa38ccaaf4fb1608088115c76f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Waffle
+    second: {fileID: 2100000, guid: 54e858f9941840f4c96b5a690bb111be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WaffleIronColor
+    second: {fileID: 2100000, guid: 3e4c0c7db50cc1f4d8ddcc16197fafd1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

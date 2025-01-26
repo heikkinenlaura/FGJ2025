@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: BubbleWrap
-    second: {fileID: 2100000, guid: 6593437d3d5168243bfa6e2bd787cee5, type: 2}
+    second: {fileID: 2100000, guid: 74f5e448935037e429cfe86d01f71b74, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
