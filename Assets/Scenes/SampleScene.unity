@@ -1130,6 +1130,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727663658}
   m_CullTransparentMesh: 1
+--- !u!1 &829141824 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1188374719118378982, guid: 2853a753ead4f1342864a4ef57639da6, type: 3}
+  m_PrefabInstance: {fileID: 8815173621515681000}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &849235202 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3055628568529782369, guid: 99e90b40beeede748889c45e0d83461c, type: 3}
@@ -2004,7 +2009,7 @@ MonoBehaviour:
   wrapPrefab: {fileID: 5953223578077502580, guid: 85572e47c4e3a3c4d8bbeedcac39fc35, type: 3}
   skumpPrefab: {fileID: 5953223578077502580, guid: f9fd5510e1b016a449f0a64f18255d5b, type: 3}
   coffeeMaker: {fileID: 1170769981}
-  teaMaker: {fileID: 0}
+  teaMaker: {fileID: 829141824}
   waffleMaker: {fileID: 1821747621}
   wrapMaker: {fileID: 1485395568}
   skumpMaker: {fileID: 849235202}
