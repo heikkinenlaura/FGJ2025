@@ -48,14 +48,14 @@ public class MakeOrder : MonoBehaviour
 
     public void WaffleMachine()
     {
-        coffeeMaker.GetComponent<Animator>().SetTrigger("MakeCoffee");
+        waffleMaker.GetComponent<Animator>().SetTrigger("MakeWaffle");
         waitingText.SetActive(true);
         StartCoroutine(SpawnItemAfterAnimation(wafflePrefab));
     }
 
 	public void TeaMachine()
 	{
-        coffeeMaker.GetComponent<Animator>().SetTrigger("MakeCoffee");
+        teaMaker.GetComponent<Animator>().SetTrigger("MakeTea");
         waitingText.SetActive(true);
         StartCoroutine(SpawnItemAfterAnimation(teaPrefab));
 	}
