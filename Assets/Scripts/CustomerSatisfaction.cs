@@ -55,9 +55,13 @@ public class CustomerSatisfaction : MonoBehaviour
     // Play happy animation
     private void PlayHappyAnimation()
     {
+
+		currentCustomer.GetComponent<Animator>().SetTrigger("Happy");
+		
         if (customerAnimator != null)
         {
-            customerAnimator.SetTrigger("Happy");
+
+			currentCustomer.GetComponent<Animator>().SetTrigger("Happy");
 
 			Debug.Log("customer animator should be used now");
 		}
@@ -70,7 +74,11 @@ public class CustomerSatisfaction : MonoBehaviour
     // Play sad animation
     private void PlaySadAnimation()
     {
-        if (customerAnimator != null)
+
+
+		currentCustomer.GetComponent<Animator>().SetTrigger("Angry");
+
+		if (customerAnimator != null)
         {
             customerAnimator.SetTrigger("Angry");
         }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9b87ec25511396549ac8c150478d6482
+guid: 8c763e7fa0c8f5e40a5f18bfe9f6bb77
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Coffee
-    second: {fileID: 2100000, guid: 5914efff195900744a342560d489fd94, type: 2}
+      name: Balls
+    second: {fileID: 2100000, guid: cc47cb5deb91f9a498069c18ac774e8c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: CoffeeMaker
-    second: {fileID: 2100000, guid: 304fc024a61a8e7479ee7a124c9632d7, type: 2}
+      name: Boba
+    second: {fileID: 2100000, guid: d76695d0db8428e4488bb77ca7c49a76, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic
+    second: {fileID: 2100000, guid: 74f5e448935037e429cfe86d01f71b74, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Straw
+    second: {fileID: 2100000, guid: 3444a6ba67fbcca4196962a5e2c333e8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

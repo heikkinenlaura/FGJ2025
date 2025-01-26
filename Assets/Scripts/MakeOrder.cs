@@ -92,9 +92,9 @@ public class MakeOrder : MonoBehaviour
         if (currentCustomer != null)
         {
 
-            // Start the customer's movement back to the starting point
-            StartCoroutine(MoveCustomerBackToStartingPoint(currentCustomer));
-        }
+			// Start the customer's movement back to the starting point
+			StartCoroutine(MoveCustomerBackToStartingPoint(currentCustomer));
+		}
     }
     private IEnumerator MoveCustomerBackToStartingPoint(GameObject customer)
     {
