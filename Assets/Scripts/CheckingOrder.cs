@@ -14,6 +14,7 @@ public class CheckingOrder : MonoBehaviour
     // Method to check if the order matches
     public void CheckOrder(GameObject instantiatedItem)
     {
+
         // Ensure an order is made and the instantiated item is valid
         if (!isOrderMade || instantiatedItem == null)
         {

@@ -41,11 +41,12 @@ public class CustomerSatisfaction : MonoBehaviour
         customerAnimator = currentCustomer.GetComponent<Animator>();
 
         // Trigger animations based on score change
-        if (scoreCounterScript.score >= 1)
-        {
-            PlayHappyAnimation();
-        }
-        else if (scoreCounterScript.score <= 0)
+        if (scoreChange >= 1)
+		{
+			PlayHappyAnimation();
+
+		}
+        else if (scoreChange <= 0)
         {
             PlaySadAnimation();
         }
@@ -54,10 +55,16 @@ public class CustomerSatisfaction : MonoBehaviour
     // Play happy animation
     private void PlayHappyAnimation()
     {
+
+		currentCustomer.GetComponent<Animator>().SetTrigger("Happy");
+		
         if (customerAnimator != null)
         {
-            customerAnimator.SetTrigger("Happy");
-        }
+
+			currentCustomer.GetComponent<Animator>().SetTrigger("Happy");
+
+			Debug.Log("customer animator should be used now");
+		}
         else
         {
             Debug.LogError("Customer Animator is missing.");
@@ -67,7 +74,11 @@ public class CustomerSatisfaction : MonoBehaviour
     // Play sad animation
     private void PlaySadAnimation()
     {
-        if (customerAnimator != null)
+
+
+		currentCustomer.GetComponent<Animator>().SetTrigger("Angry");
+
+		if (customerAnimator != null)
         {
             customerAnimator.SetTrigger("Angry");
         }
