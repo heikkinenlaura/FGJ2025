@@ -954,7 +954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &700093454
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1026,6 +1026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7091b2abf5063a48973b943603e6e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioScript: {fileID: 1127936597}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1928,6 +1929,7 @@ GameObject:
   - component: {fileID: 1127936594}
   - component: {fileID: 1127936595}
   - component: {fileID: 1127936596}
+  - component: {fileID: 1127936597}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1954,6 +1956,7 @@ MonoBehaviour:
   waitBehindDistance: -3
   customersParent: {fileID: 1723831275}
   isCustomerAtOrderingPoint: 0
+  audioScript: {fileID: 1127936597}
 --- !u!4 &1127936593
 Transform:
   m_ObjectHideFlags: 0
@@ -2018,6 +2021,7 @@ MonoBehaviour:
   orderPlacementPoint: {fileID: 974954518}
   orderingScript: {fileID: 1127936594}
   checkingOrderScript: {fileID: 1127936596}
+  checkingAudioScript: {fileID: 1127936597}
   currentCustomer: {fileID: 4767469617499471950, guid: c006e84eb9cb02947a24445d7df8cc37, type: 3}
   customerArriving: {fileID: 1127936592}
   customersParent: {fileID: 1723831274}
@@ -2039,6 +2043,28 @@ MonoBehaviour:
   score: 2
   scoreText: {fileID: 57572224}
   customerAnimator: {fileID: 477049640925648973, guid: c006e84eb9cb02947a24445d7df8cc37, type: 3}
+  checkingAudioScript: {fileID: 1127936597}
+--- !u!114 &1127936597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127936591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfea55867778db340828f0d269d9c8e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusic: {fileID: 8300000, guid: a03e6fd8db03a5240af26b6d635d894e, type: 3}
+  bubbleWrap: {fileID: 8300000, guid: 90a553bf67937564496ba4cd63deb30f, type: 3}
+  coffeeAudio: {fileID: 8300000, guid: 562ae10729678d34d9ce047aed9ce133, type: 3}
+  skumpAudio: {fileID: 8300000, guid: c8f05375b2d9b9d4e803739dd4abe9ba, type: 3}
+  waffleAudio: {fileID: 8300000, guid: 4aa5a4267b49b674fb8e267f062511fc, type: 3}
+  teaAudio: {fileID: 8300000, guid: fd903ae35905a084d8c2d269cffce7f3, type: 3}
+  happyAudio: {fileID: 8300000, guid: a3f10d0e651df3a42abd007bc23ce3cb, type: 3}
+  angryAudio: {fileID: 8300000, guid: c54bfc16b91f5e94199fed7009732684, type: 3}
+  walkAudio: {fileID: 8300000, guid: c9add7376e8bba2479814cb037222b65, type: 3}
 --- !u!1 &1147256479
 GameObject:
   m_ObjectHideFlags: 0
