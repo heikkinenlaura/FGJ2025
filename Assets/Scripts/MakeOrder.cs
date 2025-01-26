@@ -132,7 +132,7 @@ public class MakeOrder : MonoBehaviour
         }
         serveButton.SetActive(false);
         // Once the customer reaches the starting point, destroy the customer object
-        Destroy(currentCustomer);
+        Destroy(customersParent.transform.GetChild(0).gameObject);
 
         if(churroWrapped.activeInHierarchy == true)
         {
