@@ -13,9 +13,11 @@ public class CheckingOrder : MonoBehaviour
     public Animator customerAnimator;
     // Method to check if the order matches
 
+    public Audio checkingAudioScript;
+
     private void Update()
     {
-        if(score == 5)
+        if(score >= 5)
         {
             EndGame endGameScript = FindObjectOfType<EndGame>();
             endGameScript.EndGamePanel();
@@ -48,12 +50,14 @@ public class CheckingOrder : MonoBehaviour
         {
             score += 1; // Add 1 point for a correct match
             PlayHappyAnimation();
+            checkingAudioScript.PlayHappySound();
             scoreText.text = $"$: {score}"; // Update the UI text
         }
         else
         {
             score -= 1; // Subtract 1 point for an incorrect match
             PlaySadAnimation();
+            checkingAudioScript.PlayAngrySound();
             scoreText.text = $"$: {score}"; // Update the UI text
         }
 

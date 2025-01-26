@@ -24,6 +24,7 @@ public class MakeOrder : MonoBehaviour
 
     public Ordering orderingScript;  // Reference to Ordering script
     public CheckingOrder checkingOrderScript; // Reference to CheckingOrder script
+    public Audio checkingAudioScript;
 
     // Add a reference to store the instantiated item
     private GameObject currentInstantiatedItem;
@@ -40,14 +41,15 @@ public class MakeOrder : MonoBehaviour
     public void CoffeeMachine()
     {
         coffeeMaker.GetComponent<Animator>().SetTrigger("MakeCoffee");
+        checkingAudioScript.PlayCoffeeSound();
         waitingText.SetActive(true);
         StartCoroutine(SpawnItemAfterAnimation(coffeePrefab));
-        
     }
 
     public void WaffleMachine()
     {
         waffleMaker.GetComponent<Animator>().SetTrigger("MakeWaffle");
+        checkingAudioScript.PlayWaffleSound();
         waitingText.SetActive(true);
         StartCoroutine(SpawnItemAfterAnimation(wafflePrefab));
     }
@@ -55,6 +57,7 @@ public class MakeOrder : MonoBehaviour
 	public void TeaMachine()
 	{
         teaMaker.GetComponent<Animator>().SetTrigger("MakeTea");
+        checkingAudioScript.PlayTeaSound();
         waitingText.SetActive(true);
         StartCoroutine(SpawnItemAfterAnimation(teaPrefab));
 	}
@@ -62,12 +65,14 @@ public class MakeOrder : MonoBehaviour
 	public void WrapMachine()
 	{
         waitingText.SetActive(true);
+        checkingAudioScript.PlayWaffleSound();
         StartCoroutine(SpawnItemAfterAnimation(wrapPrefab));
 	}
 
 	public void SkumpMachine()
 	{
 		skumpMaker.GetComponent<Animator>().SetTrigger("PourSkumppa");
+        checkingAudioScript.PlaySkumpSound() ;
         waitingText.SetActive(true);
         StartCoroutine(SpawnItemAfterAnimation(skumpPrefab));
 	}

@@ -1772,6 +1772,7 @@ GameObject:
   - component: {fileID: 1127936595}
   - component: {fileID: 1127936596}
   - component: {fileID: 1127936597}
+  - component: {fileID: 1127936598}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1862,6 +1863,7 @@ MonoBehaviour:
   orderPlacementPoint: {fileID: 974954518}
   orderingScript: {fileID: 1127936594}
   checkingOrderScript: {fileID: 1127936596}
+  checkingAudioScript: {fileID: 1127936598}
   currentCustomer: {fileID: 4767469617499471950, guid: c006e84eb9cb02947a24445d7df8cc37, type: 3}
   customerArriving: {fileID: 1127936592}
   customersParent: {fileID: 1723831274}
@@ -1883,6 +1885,7 @@ MonoBehaviour:
   score: 2
   scoreText: {fileID: 57572224}
   customerAnimator: {fileID: 477049640925648973, guid: c006e84eb9cb02947a24445d7df8cc37, type: 3}
+  checkingAudioScript: {fileID: 1127936598}
 --- !u!114 &1127936597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1896,6 +1899,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endPanel: {fileID: 184285250}
+--- !u!114 &1127936598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127936591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfea55867778db340828f0d269d9c8e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bubbleWrap: {fileID: 0}
+  coffeeAudio: {fileID: 0}
+  skumpAudio: {fileID: 0}
+  waffleAudio: {fileID: 0}
+  teaAudio: {fileID: 0}
+  happyAudio: {fileID: 0}
+  angryAudio: {fileID: 0}
 --- !u!1 &1147256479
 GameObject:
   m_ObjectHideFlags: 0
