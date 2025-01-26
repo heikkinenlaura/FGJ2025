@@ -115,6 +115,7 @@ public class MakeOrder : MonoBehaviour
     }
     private IEnumerator MoveCustomerBackToStartingPoint(GameObject customer)
     {
+        checkingAudioScript.PlayWalkSound();
         yield return new WaitForSeconds(2f);
         // Get the position of the starting point
         Vector3 startingPosition = startingPoint.position;
@@ -126,6 +127,7 @@ public class MakeOrder : MonoBehaviour
             churroWrapped.transform.rotation = Quaternion.Euler(0, 0, 0);
             customer.transform.position = Vector3.MoveTowards(customer.transform.position, startingPosition, customerArriving.customerSpeed * Time.deltaTime);
             customer.transform.rotation = Quaternion.Euler(0, 0, 0);
+            
             yield return null; // Wait for the next frame
         }
         serveButton.SetActive(false);

@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Audio : MonoBehaviour
 {
+    public AudioClip backgroundMusic;
+
     public AudioClip bubbleWrap;
     public AudioClip coffeeAudio;
     public AudioClip skumpAudio;
@@ -21,6 +23,15 @@ public class Audio : MonoBehaviour
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
+        audioSource.loop = true;
+    }
+
+    public void PlayBackgroundMusic()
+    {
+        audioSource.clip = backgroundMusic;
+        audioSource.Play();
+
+        audioSource.loop = true;
     }
 
     // Function to play a specific sound

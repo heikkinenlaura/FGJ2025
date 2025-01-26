@@ -11,6 +11,8 @@ public class CustomerArriving : MonoBehaviour
     public Transform customersParent;
     public bool isCustomerAtOrderingPoint = false; // To check if the ordering point is currently occupied
 
+    public Audio audioScript;
+
     void Start()
     {
         // Spawn the customer when the game starts
@@ -34,6 +36,7 @@ public class CustomerArriving : MonoBehaviour
     {
         // Move the customer from the starting point to the ordering point
         float journeyTime = Vector3.Distance(startingPoint.position, orderingPoint.position) / customerSpeed;
+        audioScript.PlayWalkSound();
         float timeElapsed = 0f;
 
         // Move towards the ordering point
