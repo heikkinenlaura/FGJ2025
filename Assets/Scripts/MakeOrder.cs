@@ -65,7 +65,7 @@ public class MakeOrder : MonoBehaviour
 	public void WrapMachine()
 	{
         waitingText.SetActive(true);
-        checkingAudioScript.PlayWaffleSound();
+        checkingAudioScript.PlayBubbleSound();
         StartCoroutine(SpawnItemAfterAnimation(wrapPrefab));
 	}
 
@@ -124,7 +124,7 @@ public class MakeOrder : MonoBehaviour
         while (Vector3.Distance(customer.transform.position, startingPosition) > 0.1f)
         {
             churroWrapped.transform.position = Vector3.MoveTowards(customer.transform.position, startingPosition, customerArriving.customerSpeed * Time.deltaTime);
-            churroWrapped.transform.rotation = Quaternion.Euler(0, 0, 0);
+            churroWrapped.transform.rotation = Quaternion.Euler(0, -180, 0);
             customer.transform.position = Vector3.MoveTowards(customer.transform.position, startingPosition, customerArriving.customerSpeed * Time.deltaTime);
             customer.transform.rotation = Quaternion.Euler(0, 0, 0);
             
@@ -133,12 +133,13 @@ public class MakeOrder : MonoBehaviour
         serveButton.SetActive(false);
         // Once the customer reaches the starting point, destroy the customer object
         Destroy(currentCustomer);
+
         if(churroWrapped.activeInHierarchy == true)
         {
             churroWrapped.SetActive(false);
             churroWrapped.transform.position = customerArriving.orderingPoint.transform.position;
+            churroWrapped.transform.rotation = Quaternion.Euler(0, -180, 0);
         }
-        Debug.Log("Customer has left and was destroyed.");
 
         StartCoroutine(customerArriving.SpawnAndMoveCustomer());
     }
@@ -152,7 +153,7 @@ public class MakeOrder : MonoBehaviour
         {
             churroWrapped.SetActive(true);
             churroWrapped.transform.position = customerArriving.orderingPoint.transform.position;
-            //Destroy(customersParent.transform.GetChild(0).gameObject);
+            customersParent.transform.GetChild(0).gameObject.SetActive(false);
         }
         serveButton.SetActive(true);
         // Instantiate the item at the order placement point
