@@ -1799,6 +1799,7 @@ MonoBehaviour:
   waitBehindDistance: -3
   customersParent: {fileID: 1723831275}
   isCustomerAtOrderingPoint: 0
+  audioScript: {fileID: 1127936598}
 --- !u!4 &1127936593
 Transform:
   m_ObjectHideFlags: 0
