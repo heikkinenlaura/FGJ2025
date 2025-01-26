@@ -17,7 +17,7 @@ public class CheckingOrder : MonoBehaviour
 
     private void Update()
     {
-        if(score >= 5)
+        if(score > 7)
         {
             EndGame endGameScript = FindObjectOfType<EndGame>();
             endGameScript.EndGamePanel();
