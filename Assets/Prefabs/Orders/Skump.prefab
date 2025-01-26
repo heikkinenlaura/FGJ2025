@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 3844485319776009643}
   - component: {fileID: 8845901772191355813}
   m_Layer: 5
-  m_Name: Bubbles
+  m_Name: Skump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

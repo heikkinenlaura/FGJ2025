@@ -6,9 +6,17 @@ public class MakeOrder : MonoBehaviour
 {
     public GameObject coffeePrefab;
     public GameObject teaPrefab;
-    public GameObject wafflePrefab;
+	public GameObject wafflePrefab;
+	public GameObject wrapPrefab;
+	public GameObject skumpPrefab;
 
-    public Transform orderPlacementPoint;
+	public GameObject coffeeMaker;
+	public GameObject teaMaker;
+	public GameObject waffleMaker;
+	public GameObject wrapMaker;
+	public GameObject skumpMaker;
+
+	public Transform orderPlacementPoint;
 
     public Ordering orderingScript;  // Reference to Ordering script
     public CheckingOrder checkingOrderScript; // Reference to CheckingOrder script
@@ -27,6 +35,7 @@ public class MakeOrder : MonoBehaviour
 
     public void CoffeeMachine()
     {
+        coffeeMaker.GetComponent<Animator>().SetTrigger("MakeCoffee");
         StartCoroutine(SpawnItemAfterAnimation(coffeePrefab));
         
     }
@@ -36,12 +45,23 @@ public class MakeOrder : MonoBehaviour
         StartCoroutine(SpawnItemAfterAnimation(wafflePrefab));
     }
 
-    public void TeaMachine()
-    {
-        StartCoroutine(SpawnItemAfterAnimation(teaPrefab));
-    }
+	public void TeaMachine()
+	{
+		StartCoroutine(SpawnItemAfterAnimation(teaPrefab));
+	}
 
-    public void Serve()
+	public void WrapMachine()
+	{
+		StartCoroutine(SpawnItemAfterAnimation(wrapPrefab));
+	}
+
+	public void SkumpMachine()
+	{
+		skumpMaker.GetComponent<Animator>().SetTrigger("PourSkumppa");
+		StartCoroutine(SpawnItemAfterAnimation(skumpPrefab));
+	}
+
+	public void Serve()
     {
         // Check if an item has been instantiated
         if (currentInstantiatedItem != null)
