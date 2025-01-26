@@ -7,10 +7,10 @@ public class CheckingOrder : MonoBehaviour
     public int score = 0;           // Track the score
     private bool isOrderMade = false; // Track if an order is made
     private GameObject lastInstantiatedItem; // Track the last instantiated item
-    public CustomerSatisfaction customerSatisfactionScript; // Reference to CustomerSatisfaction script
+    //public CustomerSatisfaction customerSatisfactionScript; // Reference to CustomerSatisfaction script
 
     public TextMeshProUGUI scoreText;
-
+    public Animator customerAnimator;
     // Method to check if the order matches
     public void CheckOrder(GameObject instantiatedItem)
     {
@@ -38,22 +38,36 @@ public class CheckingOrder : MonoBehaviour
         if (selectedIconName == instantiatedItemName)
         {
             score += 1; // Add 1 point for a correct match
+            PlayHappyAnimation();
             scoreText.text = $"$: {score}"; // Update the UI text
         }
         else
         {
             score -= 1; // Subtract 1 point for an incorrect match
+            PlaySadAnimation();
             scoreText.text = $"$: {score}"; // Update the UI text
         }
 
-        // After checking the order, call the customer satisfaction script
-        if (customerSatisfactionScript != null)
-        {
-            customerSatisfactionScript.HandleCustomerSatisfaction(score); // Pass the score to handle customer satisfaction
-        }
+        
+         //  customerSatisfactionScript.HandleCustomerSatisfaction(score); // Pass the score to handle customer satisfaction
+        
 
         // Reset the flag after checking the order
         isOrderMade = false;
+    }
+    private void PlayHappyAnimation()
+    {
+        GameObject character = GameObject.FindGameObjectWithTag("Customer");
+        Animator customerAnimator = character.GetComponent<Animator>();
+        customerAnimator.SetTrigger("Happy");
+    }
+
+    // Play sad animation
+    private void PlaySadAnimation()
+    {
+        GameObject character = GameObject.FindGameObjectWithTag("Customer");
+        Animator customerAnimator = character.GetComponent<Animator>();
+        customerAnimator.SetTrigger("Angry");
     }
 
     // Method to be called when the order is placed
@@ -76,11 +90,9 @@ public class CheckingOrder : MonoBehaviour
             // Destroy the item after it's served
             Destroy(item);
 
-            // Optionally, call customer satisfaction or any other logic you'd like after serving the item
-            if (customerSatisfactionScript != null)
-            {
-                customerSatisfactionScript.HandleCustomerSatisfaction(score); // Update customer satisfaction
-            }
+            
+            //   customerSatisfactionScript.HandleCustomerSatisfaction(score); // Update customer satisfaction
+            
         }
         else
         {

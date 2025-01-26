@@ -16,6 +16,10 @@ public class MakeOrder : MonoBehaviour
 	public GameObject wrapMaker;
 	public GameObject skumpMaker;
 
+    public GameObject waitingText;
+
+    public GameObject churroWrapped;
+
 	public Transform orderPlacementPoint;
 
     public Ordering orderingScript;  // Reference to Ordering script
@@ -36,29 +40,37 @@ public class MakeOrder : MonoBehaviour
     public void CoffeeMachine()
     {
         coffeeMaker.GetComponent<Animator>().SetTrigger("MakeCoffee");
+        waitingText.SetActive(true);
+        Debug.Log(waitingText.activeInHierarchy + " ");
         StartCoroutine(SpawnItemAfterAnimation(coffeePrefab));
         
     }
 
     public void WaffleMachine()
     {
+        coffeeMaker.GetComponent<Animator>().SetTrigger("MakeCoffee");
+        waitingText.SetActive(true);
         StartCoroutine(SpawnItemAfterAnimation(wafflePrefab));
     }
 
 	public void TeaMachine()
 	{
-		StartCoroutine(SpawnItemAfterAnimation(teaPrefab));
+        coffeeMaker.GetComponent<Animator>().SetTrigger("MakeCoffee");
+        waitingText.SetActive(true);
+        StartCoroutine(SpawnItemAfterAnimation(teaPrefab));
 	}
 
 	public void WrapMachine()
 	{
-		StartCoroutine(SpawnItemAfterAnimation(wrapPrefab));
+        waitingText.SetActive(true);
+        StartCoroutine(SpawnItemAfterAnimation(wrapPrefab));
 	}
 
 	public void SkumpMachine()
 	{
 		skumpMaker.GetComponent<Animator>().SetTrigger("PourSkumppa");
-		StartCoroutine(SpawnItemAfterAnimation(skumpPrefab));
+        waitingText.SetActive(true);
+        StartCoroutine(SpawnItemAfterAnimation(skumpPrefab));
 	}
 
 	public void Serve()
@@ -71,7 +83,8 @@ public class MakeOrder : MonoBehaviour
 
             // Destroy the item after placing it in the order
             orderIcon = orderingScript.orderParent.transform.GetChild(0).gameObject;
-            Destroy(currentInstantiatedItem);
+            DestroyImmediate(currentInstantiatedItem, true);
+           
             Destroy(orderIcon);
             Destroy(orderingScript.selectedIcon);
 
@@ -87,7 +100,7 @@ public class MakeOrder : MonoBehaviour
     }
     public void StartLeavingCustomer(GameObject customer)
     {
-        currentCustomer = customersParent.transform.GetChild(0).gameObject;
+        currentCustomer = GameObject.FindGameObjectWithTag("Customer");
 
         if (currentCustomer != null)
         {
@@ -98,12 +111,15 @@ public class MakeOrder : MonoBehaviour
     }
     private IEnumerator MoveCustomerBackToStartingPoint(GameObject customer)
     {
+        yield return new WaitForSeconds(2f);
         // Get the position of the starting point
         Vector3 startingPosition = startingPoint.position;
 
         // Move the customer back towards the starting point
         while (Vector3.Distance(customer.transform.position, startingPosition) > 0.1f)
         {
+            churroWrapped.transform.position = Vector3.MoveTowards(customer.transform.position, startingPosition, customerArriving.customerSpeed * Time.deltaTime);
+            churroWrapped.transform.rotation = Quaternion.Euler(0, 0, 0);
             customer.transform.position = Vector3.MoveTowards(customer.transform.position, startingPosition, customerArriving.customerSpeed * Time.deltaTime);
             customer.transform.rotation = Quaternion.Euler(0, 0, 0);
             yield return null; // Wait for the next frame
@@ -111,6 +127,7 @@ public class MakeOrder : MonoBehaviour
         serveButton.SetActive(false);
         // Once the customer reaches the starting point, destroy the customer object
         Destroy(currentCustomer);
+        Destroy(churroWrapped);
         Debug.Log("Customer has left and was destroyed.");
 
         StartCoroutine(customerArriving.SpawnAndMoveCustomer());
@@ -118,8 +135,14 @@ public class MakeOrder : MonoBehaviour
     private IEnumerator SpawnItemAfterAnimation(GameObject itemPrefab)
     {
         // Wait for the animation to finish (you can use a fixed time or animation length)
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
 
+        waitingText.SetActive(false);
+        if (itemPrefab == wrapPrefab)
+        {
+            churroWrapped.SetActive(true);
+            Destroy(customersParent.transform.GetChild(0).gameObject);
+        }
         serveButton.SetActive(true);
         // Instantiate the item at the order placement point
         if (itemPrefab != null && orderPlacementPoint != null)
