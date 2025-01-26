@@ -41,7 +41,6 @@ public class MakeOrder : MonoBehaviour
     {
         coffeeMaker.GetComponent<Animator>().SetTrigger("MakeCoffee");
         waitingText.SetActive(true);
-        Debug.Log(waitingText.activeInHierarchy + " ");
         StartCoroutine(SpawnItemAfterAnimation(coffeePrefab));
         
     }
@@ -127,7 +126,11 @@ public class MakeOrder : MonoBehaviour
         serveButton.SetActive(false);
         // Once the customer reaches the starting point, destroy the customer object
         Destroy(currentCustomer);
-        Destroy(churroWrapped);
+        if(churroWrapped.activeInHierarchy == true)
+        {
+            churroWrapped.SetActive(false);
+            churroWrapped.transform.position = customerArriving.orderingPoint.transform.position;
+        }
         Debug.Log("Customer has left and was destroyed.");
 
         StartCoroutine(customerArriving.SpawnAndMoveCustomer());
@@ -141,7 +144,8 @@ public class MakeOrder : MonoBehaviour
         if (itemPrefab == wrapPrefab)
         {
             churroWrapped.SetActive(true);
-            Destroy(customersParent.transform.GetChild(0).gameObject);
+            churroWrapped.transform.position = customerArriving.orderingPoint.transform.position;
+            //Destroy(customersParent.transform.GetChild(0).gameObject);
         }
         serveButton.SetActive(true);
         // Instantiate the item at the order placement point
