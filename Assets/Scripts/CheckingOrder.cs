@@ -12,6 +12,15 @@ public class CheckingOrder : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public Animator customerAnimator;
     // Method to check if the order matches
+
+    private void Update()
+    {
+        if(score == 5)
+        {
+            EndGame endGameScript = FindObjectOfType<EndGame>();
+            endGameScript.EndGamePanel();
+        }
+    }
     public void CheckOrder(GameObject instantiatedItem)
     {
 
